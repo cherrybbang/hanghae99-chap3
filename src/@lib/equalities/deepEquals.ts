@@ -51,3 +51,6 @@ export function deepEquals<T>(objA: T, objB: T): boolean {
 
   return true;
 }
+
+// Record<string, unknown>는 객체의 키가 string이고, 값이 어떤 타입이든 될 수 있음.
+// unknown을 쓰면 any처럼 유연하고, 타입 체크를 강제해서 더 안전하고 Lint도 통과.
