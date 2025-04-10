@@ -36,7 +36,7 @@ export function deepEquals<T>(objA: T, objB: T): boolean {
   const keysA = Object.keys(objA as object);
   const keysB = Object.keys(objB as object);
 
-  // 객체의 키 개수가 다른 경우우
+  // 객체의 키 개수가 다른 경우
   if (keysA.length !== keysB.length) {
     return false;
   }
@@ -54,3 +54,5 @@ export function deepEquals<T>(objA: T, objB: T): boolean {
 
 // Record<string, unknown>는 객체의 키가 string이고, 값이 어떤 타입이든 될 수 있음.
 // unknown을 쓰면 any처럼 유연하고, 타입 체크를 강제해서 더 안전하고 Lint도 통과.
+// 깊은 비교는 객체의 경우에도 값으로 비교한다.
+// Object depth가 깊지 않은 경우 JSON.stringify()사용 / 깊은 경우, ladash isEqual()사용
